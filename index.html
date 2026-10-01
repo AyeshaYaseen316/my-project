@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie website</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie - Delicious Food</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fffaf5;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e85d04;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #e85d04;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 8%;
+            background: #fff1e6;
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #e85d04;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e85d04;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #c94d00;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            width: 45%;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 50%;
+        }
+
+        /* SECTION */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+            color: #777;
+        }
+
+        /* FOOD CARDS */
+        .food-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .food-content {
+            padding: 20px;
+        }
+
+        .food-content h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .food-content p {
+            color: #777;
+            line-height: 1.5;
+        }
+
+        .price {
+            color: #e85d04;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #fff1e6;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+            color: #555;
+            font-size: 17px;
+        }
+
+        /* CONTACT */
+        .contact-form {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #e85d04;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-form button {
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #e85d04;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text,
+            .hero-image {
+                width: 100%;
+            }
+
+            .hero-text {
+                margin-bottom: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .food-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .food-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">🍴 Foodie</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <h1>Enjoy Your <span>Delicious Food</span></h1>
+
+            <p>
+                Fresh ingredients, delicious flavors and amazing food.
+                Discover our special menu and enjoy every bite with Foodie.
+            </p>
+
+            <a href="#menu" class="btn">Explore Menu</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=80"
+                 alt="Delicious Food">
+        </div>
+
+    </section>
+
+
+    <!-- MENU SECTION -->
+    <section id="menu">
+
+        <div class="section-title">
+            <h2>Our Popular Menu</h2>
+            <p>Choose your favorite delicious meal</p>
+        </div>
+
+        <div class="food-container">
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80"
+                     alt="Pizza">
+
+                <div class="food-content">
+                    <h3>Cheese Pizza</h3>
+                    <p>Fresh pizza with melted cheese and delicious toppings.</p>
+                    <div class="price">$12.99</div>
+                </div>
+            </div>
+
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+                     alt="Burger">
+
+                <div class="food-content">
+                    <h3>Classic Burger</h3>
+                    <p>Juicy beef burger with fresh vegetables and special sauce.</p>
+                    <div class="price">$9.99</div>
+                </div>
+            </div>
+
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80"
+                     alt="Pasta">
+
+                <div class="food-content">
+                    <h3>Creamy Pasta</h3>
+                    <p>Delicious creamy pasta prepared with fresh ingredients.</p>
+                    <div class="price">$10.99</div>
+                </div>
+            </div>
+
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80"
+                     alt="Salad">
+
+                <div class="food-content">
+                    <h3>Fresh Salad</h3>
+                    <p>Healthy and fresh salad with vegetables and tasty dressing.</p>
+                    <div class="price">$7.99</div>
+                </div>
+            </div>
+
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+                     alt="Cake">
+
+                <div class="food-content">
+                    <h3>Chocolate Cake</h3>
+                    <p>Soft and delicious chocolate cake for dessert lovers.</p>
+                    <div class="price">$6.99</div>
+                </div>
+            </div>
+
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=600&q=80"
+                     alt="Drink">
+
+                <div class="food-content">
+                    <h3>Fresh Drink</h3>
+                    <p>Refreshing and chilled drink made with fresh ingredients.</p>
+                    <div class="price">$4.99</div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+
+        <div class="section-title">
+            <h2>About Foodie</h2>
+        </div>
+
+        <p>
+            Foodie is a simple food website created for people who love
+            delicious and fresh meals. We believe great food brings people
+            together. Our goal is to provide tasty food made with quality
+            ingredients and served with love.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Have a question? Send us a message.</p>
+        </div>
+
+        <form class="contact-form">
+
+            <input type="text" placeholder="Your Name" required>
+
+            <input type="email" placeholder="Your Email" required>
+
+            <textarea placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 <span>Foodie</span>. All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
